@@ -1,7 +1,3 @@
-/* ------------------------------------ Click on login and Sign Up to  changue and view the effect
----------------------------------------
-*/
-
 * {
   margin:  0px auto;
   padding: 0px;
@@ -10,6 +6,7 @@
 }
 .pull-left img {
   width:60px;
+  height: 40px;
 }
 /* carousel */
 .carousel-inner > .item > img,
@@ -18,33 +15,136 @@
       margin: auto;
   }
 
-.link-logo{
-  float: left !important;
-  margin-left: 30px;
-}
+  #container {
+  		position: fixed;
+  		width: 100%;
+  	}
+
+  	#container:after {
+  		content: "";
+  		display: block;
+  		clear: both;
+  		height: 0;
+  	}
+
+  	#menu {
+  		position: relative;
+  		float: left;
+  		width: 100%;
+  		padding: 0 20px;
+  		border-radius: 3px;
+  		box-shadow: inset 0 1px 1px rgba(255,255,255,.5), inset 0 -1px 0 rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.15);
+  		background: #ccc;
+  	}
+
+  	#menu, #menu ul {
+  		list-style: none;
+  	}
+
+  	#menu > li {
+  		float: left;
+  		position: relative;
+  		border-right: 1px solid rgba(0,0,0,.1);
+  		box-shadow: 1px 0 0 rgba(255,255,255,.25);
+  		perspective: 1000px;
+
+  	}
+
+  	#menu > li:first-child {
+  		border-left: 1px solid rgba(255,255,255,.25);
+  		box-shadow: -1px 0 0 rgba(0,0,0,.1), 1px 0 0 rgba(255,255,255,.25);
+  	}
+
+  	#menu a {
+  		display: block;
+  		position: relative;
+  		z-index: 10;
+  		padding: 13px 20px 13px 20px;
+  		text-decoration: none;
+  		color: rgba(75,75,75,1);
+  		line-height: 1;
+  		font-weight: 600;
+  		font-size: 12px;
+  		letter-spacing: -.05em;
+  		background: transparent;
+  		text-shadow: 0 1px 1px rgba(255,255,255,.9);
+  		transition: all .25s ease-in-out;
+
+  	}
+
+  	#menu > li:hover > a {
+  		background: #333;
+  		color: rgba(0,223,252,1);
+  		text-shadow: none;
+  	}
+
+  	#menu li ul  {
+  		position: absolute;
+  		left: 0;
+  		z-index: 1;
+  		width: 200px;
+  		padding: 0;
+  		opacity: 0;
+  		visibility: hidden;
+  		border-bottom-left-radius: 4px;
+  		border-bottom-right-radius: 4px;
+  		background: transparent;
+  		overflow: hidden;
+  		transform-origin: 50% 0%;
+  	}
 
 
+  	#menu li:hover ul {
 
-li {
-    text-align: center;
-    display: inline-block;
-}
+  		padding: 15px 0;
+  		background: #333;
+  		opacity: 1;
+  		visibility: visible;
+  		box-shadow: 1px 1px 7px rgba(0,0,0,.5);
+  		animation-name: swingdown;
+  		animation-duration: 1s;
+  		animation-timing-function: ease;
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+  	}
 
-li a:hover:not(.active) {
-    background-color: #111;
-}
+  	@keyframes swingdown {
+  		0% {
+  			opacity: .99999;
+  			transform: rotateX(90deg);
+  		}
 
-.active {
-    background-color: #4CAF50;
-}
+  		30% {
+  			transform: rotateX(-20deg) rotateY(5deg);
+  			animation-timing-function: ease-in-out;
+  		}
+
+  		65% {
+  			transform: rotateX(20deg) rotateY(-3deg);
+  			animation-timing-function: ease-in-out;
+  		}
+
+  		100% {
+  			transform: rotateX(0);
+  			animation-timing-function: ease-in-out;
+  		}
+  	}
+
+  	#menu li li a {
+  		padding-left: 15px;
+  		font-weight: 400;
+  		color: #ddd;
+  		text-shadow: none;
+  		border-top: dotted 1px transparent;
+  		border-bottom: dotted 1px transparent;
+  		transition: all .15s linear;
+  	}
+
+  	#menu li li a:hover {
+  		color: rgba(0,223,252,1);
+  		border-top: dotted 1px rgba(255,255,255,.15);
+  		border-bottom: dotted 1px rgba(255,255,255,.15);
+  		background: rgba(0,223,252,.02);
+  	}
 .cotn_principal {
   position: absolute;
   width: 100%;
@@ -511,76 +611,3 @@ a.link-home:hover {
 footer {
   width: 100%;
 }
-
-
-
-
-
-
-
-/* social nav css */
-
-@import url(http://weloveiconfonts.com/api/?family=entypo);
-
-/* entypo */
-[class*="entypo-"]:before {
-   font-family: "entypo", sans-serif;
-}
-#sticky-social a {
-   text-decoration: none;
-}
-#sticky-social ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-}
-.container {
-   margin: 0 auto;
-   padding: 20px 50px;
-   background: white;
-}
-#sticky-social {
-   left: 0;
-   position: fixed;
-   top: 150px;
-}
-#sticky-social a {
-   background: #333;
-   color: #fff;
-   display: block;
-   height: 35px;
-   font: 16px "Open Sans", sans-serif;
-   line-height: 35px;
-   position: relative;
-   text-align: center;
-   width: 35px;
-}
-#sticky-social a span {
-   line-height: 35px;
-   left: -120px;
-   position: absolute;
-   text-align:center;
-   width:120px;
-}
-#sticky-social a:hover span {
-   left: 100%;
-}
-#sticky-social a[class*="facebook"],
-#sticky-social a[class*="facebook"]:hover,
-#sticky-social a[class*="facebook"] span { background: #3b5998; }
-
-#sticky-social a[class*="twitter"],
-#sticky-social a[class*="twitter"]:hover,
-#sticky-social a[class*="twitter"] span { background: #00aced; }
-
-#sticky-social a[class*="gplus"],
-#sticky-social a[class*="gplus"]:hover,
-#sticky-social a[class*="gplus"] span { background: #dd4b39; }
-
-#sticky-social a[class*="linkedin"],
-#sticky-social a[class*="linkedin"]:hover,
-#sticky-social a[class*="linkedin"] span { background: #007bb6; }
-
-#sticky-social a[class*="instagrem"],
-#sticky-social a[class*="instagrem"]:hover,
-#sticky-social a[class*="instagrem"] span { background: #517fa4; }
